@@ -5,6 +5,7 @@
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+import 'package:youtube_player_flutter/src/enums/thumbnail_quality.dart';
 
 import '../enums/playback_rate.dart';
 import '../enums/player_state.dart';
@@ -152,12 +153,15 @@ class YoutubePlayerController extends ValueNotifier<YoutubePlayerValue> {
   /// The video id with which the player initializes.
   final String initialVideoId;
 
+  final String thumbnailQuality;
+
   /// Composes all the flags required to control the player.
   final YoutubePlayerFlags flags;
 
   /// Creates [YoutubePlayerController].
   YoutubePlayerController({
     required this.initialVideoId,
+    this.thumbnailQuality = ThumbnailQuality.high,
     this.flags = const YoutubePlayerFlags(),
   }) : super(YoutubePlayerValue());
 

@@ -179,7 +179,7 @@ class YoutubePlayer extends StatefulWidget {
   /// Grabs YouTube video's thumbnail for provided video id.
   static String getThumbnail({
     required String videoId,
-    String quality = ThumbnailQuality.standard,
+    String quality = ThumbnailQuality.high,
     bool webp = true,
   }) =>
       webp
@@ -418,6 +418,7 @@ class _YoutubePlayerState extends State<YoutubePlayer> {
           videoId: controller.metadata.videoId.isEmpty
               ? controller.initialVideoId
               : controller.metadata.videoId,
+          quality: controller.thumbnailQuality,
         ),
         fit: BoxFit.cover,
         loadingBuilder: (_, child, progress) =>
